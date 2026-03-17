@@ -95,9 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnMTY.style.display = 'flex';
 
         // Listeners para clics regionales
-        btnCDMX.onclick = () => alert("Accediendo a Men Plus Ciudad de México...");
-        btnGDLJ.onclick = () => alert("Accediendo a Men Plus Guadalajara...");
-        btnMTY.onclick = () => alert("Accediendo a Men Plus Monterrey...");
+        btnCDMX.onclick = () => window.location.href = "https://script.google.com/macros/s/AKfycbwU8VRaxGQFhLPTm3MYZfQdqmVWPtetT3Kgrty34hsyqPgT3jfkCJfbZyK9Vbp8p2u6RQ/exec";
+        btnGDLJ.onclick = () => window.location.href = "https://script.google.com/macros/s/AKfycbxxnWEE-Fsf4I3qQC9uA338FUJNvijBMFOPj4RcI2-KKo4nTHQzPqyOXQc_1aO9Jx4O6g/exec";
+        btnMTY.onclick = () => window.location.href = "https://script.google.com/macros/s/AKfycbxmVBHV9-BP0ENlOn33709X4svvUzfwWpb59RSj6SLw85OGccqOneOA3TgZelduqYJOOw/exec";
     }
 
     // --- Logout ---
