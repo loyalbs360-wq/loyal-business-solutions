@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyal Business Solutions | Inteligencia Contable y Financiera</title>
+    <meta name="description" content="Despacho contable moderno basado en tecnología y análisis de datos para empresas y emprendedores en México.">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo-nav">
+                <img src="lbs imagen/LBS3 (1)_page-0001.jpg" alt="Loyal Business Solutions" style="height: 100%; width: auto;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portal">Portal de Clientes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Agendar Asesoría</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Inteligencia Contable y Financiera para Empresas Modernas</h1>
+                <p>En Loyal Business Solutions combinamos contabilidad, análisis financiero y tecnología para ayudarte a tomar mejores decisiones empresariales.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="btn btn-primary">Agendar Asesoría</a>
+                    <a href="#portal" class="btn btn-outline">Portal de Clientes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros">
+        <div class="container">
+            <div class="contact-container">
+                <div>
+                    <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">Tecnología aplicada a tu crecimiento</h2>
+                    <p>Loyal Business Solutions es un despacho especializado en soluciones contables, fiscales y financieras para empresas y emprendedores.</p>
+                </div>
+                <div>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Nuestro enfoque combina:</p>
+                    <ul class="grid-container" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <li style="display: flex; align-items: center; gap: 10px; font-weight: 500;">
+                            <i data-lucide="check-circle" style="color: var(--accent-blue); width: 20px;"></i> Contabilidad Estratégica
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-weight: 500;">
+                            <i data-lucide="check-circle" style="color: var(--accent-blue); width: 20px;"></i> Cumplimiento Fiscal
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-weight: 500;">
+                            <i data-lucide="check-circle" style="color: var(--accent-blue); width: 20px;"></i> Análisis Financiero
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-weight: 500;">
+                            <i data-lucide="check-circle" style="color: var(--accent-blue); width: 20px;"></i> Automatización de Procesos
+                        </li>
+                    </ul>
+                    <p style="margin-top: 2rem;">Nuestro objetivo es que nuestros clientes tengan control total de su información financiera y puedan tomar decisiones basadas en datos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" style="background: rgba(15, 23, 42, 0.3);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Nuestros Servicios</h2>
+                <p style="color: var(--text-muted);">Soluciones integrales diseñadas para la era digital.</p>
+            </div>
+            <div class="grid-container">
+                <!-- Servicio 1 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="book-open"></i></div>
+                    <h3>Contabilidad Empresarial</h3>
+                    <p>Gestión integral de la contabilidad, registros contables, conciliaciones bancarias y elaboración de estados financieros.</p>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="file-text"></i></div>
+                    <h3>Cumplimiento Fiscal</h3>
+                    <p>Preparación y presentación de declaraciones mensuales y anuales. Atención a requerimientos del SAT y cumplimiento integral.</p>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="users"></i></div>
+                    <h3>Nómina y Seguridad Social</h3>
+                    <p>Administración de nómina, altas/bajas ante el IMSS, cumplimiento con INFONAVIT y cálculo de cuotas obrero patronales.</p>
+                </div>
+                <!-- Servicio 4 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="trending-up"></i></div>
+                    <h3>Planeación Fiscal</h3>
+                    <p>Diseño de estrategias fiscales para optimizar impuestos de forma legal y eficiente, protegiendo tu patrimonio.</p>
+                </div>
+                <!-- Servicio 5 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <h3>Análisis Financiero Empresarial</h3>
+                    <p>Evaluación del desempeño mediante indicadores de rentabilidad, liquidez y proyecciones financieras para la toma de decisiones.</p>
+                </div>
+                <!-- Servicio 6 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="zap"></i></div>
+                    <h3>Automatización de Flujos</h3>
+                    <p>Implementación de dashboards financieros y automatización de reportes para un control de flujo de efectivo en tiempo real.</p>
+                </div>
+                <!-- Servicio 7 -->
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="rocket"></i></div>
+                    <h3>Asesoría para Startups</h3>
+                    <p>Apoyo en constitución de empresas, estructura fiscal y planeación financiera inicial para el escalamiento del negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal de Clientes -->
+    <section id="portal" class="portal-section">
+        <div class="container portal-grid">
+            <div class="portal-preview">
+                <div class="dashboard-mock">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); letter-spacing: 1px;">Dashboard Financiero V3.0</h4>
+                        <i data-lucide="layout-dashboard" style="width: 16px; color: var(--text-muted);"></i>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="mockChart"></canvas>
+                    </div>
+                </div>
+                <div class="stats-grid-mini">
+                    <div class="stat-card-mini">
+                        <p class="stat-label">Balance General</p>
+                        <p class="stat-value">$452,300</p>
+                    </div>
+                    <div class="stat-card-mini">
+                        <p class="stat-label">Impuestos Pagados</p>
+                        <p class="stat-value">$12,450</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Portal de Clientes Digital</h2>
+                <p style="margin-bottom: 2rem;">Nuestros clientes tienen acceso a un portal digital exclusivo donde pueden consultar su información contable y financiera en tiempo real.</p>
+                <ul style="margin-bottom: 2.5rem; display: grid; gap: 0.8rem;">
+                    <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="pie-chart" style="width: 20px; color: var(--accent-blue);"></i> Estados financieros e indicadores clave</li>
+                    <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="calendar" style="width: 20px; color: var(--accent-blue);"></i> Impuestos por pagar y declaraciones</li>
+                    <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="file-json" style="width: 20px; color: var(--accent-blue);"></i> Documentos fiscales y reportes contables</li>
+                </ul>
+                <div style="background: var(--primary-dark); padding: 2rem; border-radius: 20px; border: 1px solid var(--accent-blue);">
+                    <h4 style="margin-bottom: 1.5rem;">Acceso Privado</h4>
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" placeholder="user@loyalbusiness.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; justify-content: center;">Acceder al Portal</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="text-align: center; background: linear-gradient(135deg, var(--accent-blue), #1e4ed8); color: white;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Transforma la contabilidad de tu empresa en una herramienta estratégica</h2>
+            <div class="hero-btns" style="justify-content: center; margin-top: 2.5rem;">
+                <a href="#contacto" class="btn" style="background: white; color: var(--accent-blue);">Agendar Asesoría</a>
+                <a href="https://wa.me/xxxxxx" class="btn btn-outline" style="border-color: white;">Contactar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container contact-container">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">¿Hablamos de tu futuro?</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">Estamos listos para implementar las soluciones que tu empresa necesita.</p>
+                <ul style="display: grid; gap: 1.5rem;">
+                    <li style="display: flex; align-items: center; gap: 1rem;">
+                        <i data-lucide="mail" style="color: var(--accent-blue);"></i> contacto@loyalbusiness.com
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem;">
+                        <i data-lucide="phone" style="color: var(--accent-blue);"></i> +52 (XXX) XXX XXXX
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem;">
+                        <i data-lucide="map-pin" style="color: var(--accent-blue);"></i> Ciudad de México, México
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem;">
+                        <i data-lucide="clock" style="color: var(--accent-blue);"></i> Lun - Vie: 9:00 - 18:00
+                    </li>
+                </ul>
+            </div>
+            <div class="card" style="padding: 3rem;">
+                <form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label>Empresa</label>
+                            <input type="text" placeholder="Nombre de empresa">
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="email@ejemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" placeholder="+52 ...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea rows="4" placeholder="¿Cómo podemos ayudarte?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="lbs imagen/LBS3 (1)_page-0001.jpg" alt="Logo" class="footer-logo">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 300px;">Líderes en soluciones contables y financieras basadas en tecnología.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#portal">Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Redes Sociales</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Loyal Business Solutions. Reservados todos los derechos.</p>
+                <p>Diseñado con <i data-lucide="heart" style="width: 12px; color: #ef4444; display: inline;"></i> para el futuro financiero.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
