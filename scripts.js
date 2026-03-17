@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerPass = document.getElementById('registerPass');
     const registerError = document.getElementById('registerError');
 
+    const btnCDMX = document.getElementById('btnCDMX');
+    const btnGDLJ = document.getElementById('btnGDLJ');
+    const btnMTY = document.getElementById('btnMTY');
+
     // --- Monitoreo de Usuario ---
     onUserStatusChange((user) => {
         if (user) {
@@ -27,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             authContent.style.display = 'none';
             privateContent.style.display = 'block';
             navLogoutBtn.style.display = 'flex';
+            
+            // Simulación de Niveles de Acceso (Aquí irá la lógica real de Firestore pronto)
+            // Por ahora mostramos los 3, pero listos para filtrar
+            checkRegionalAccess(user);
+            
             initDashboard(); // Inicializar gráfica solo si hay usuario
         } else {
             // Usuario no logueado
@@ -75,6 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
             registerError.style.display = 'block';
         }
     });
+
+    // --- Lógica de Acceso Regional ---
+    async function checkRegionalAccess(user) {
+        // En el futuro, leeremos un campo 'region' de Firestore
+        // Ejemplo: const userDoc = await getDoc(...);
+        // Por ahora, habilitamos todos para que el usuario pueda verlos
+        btnCDMX.style.display = 'flex';
+        btnGDLJ.style.display = 'flex';
+        btnMTY.style.display = 'flex';
+
+        // Listeners para clics regionales
+        btnCDMX.onclick = () => alert("Accediendo a Men Plus Ciudad de México...");
+        btnGDLJ.onclick = () => alert("Accediendo a Men Plus Guadalajara...");
+        btnMTY.onclick = () => alert("Accediendo a Men Plus Monterrey...");
+    }
 
     // --- Logout ---
     navLogoutBtn.addEventListener('click', async () => {

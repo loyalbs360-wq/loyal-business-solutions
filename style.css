@@ -420,6 +420,55 @@ footer {
     }
 }
 
+/* --- Regional Access Buttons --- */
+.regional-access-container {
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid var(--card-border);
+}
+
+.regional-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.regional-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.regional-btn i {
+    color: var(--accent-blue);
+    transition: var(--transition-smooth);
+}
+
+.regional-btn:hover {
+    background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+    border-color: transparent;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.regional-btn:hover i {
+    color: var(--white);
+}
+
 /* --- Auth & Modals --- */
 .modal {
     display: none;
