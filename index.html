@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="scripts.js" defer></script>
 </head>
 
 <body>
@@ -29,11 +31,12 @@
                 <img src="lbs imagen/LBS3 (1)_page-0001.jpg" alt="Loyal Business Solutions" style="height: 100%; width: auto;">
             </a>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#portal">Portal de Clientes</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#portal" class="nav-link">Portal de Clientes</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <button id="navLogoutBtn" class="btn btn-outline" style="display: none; padding: 0.5rem 1rem; font-size: 0.8rem;">Cerrar Sesión</button>
             </ul>
             <a href="#contacto" class="btn btn-primary">Agendar Asesoría</a>
         </div>
@@ -144,28 +147,56 @@
     <!-- Portal de Clientes -->
     <section id="portal" class="portal-section">
         <div class="container portal-grid">
-            <div class="portal-preview">
-                <div class="dashboard-mock">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                        <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); letter-spacing: 1px;">Dashboard Financiero V3.0</h4>
-                        <i data-lucide="layout-dashboard" style="width: 16px; color: var(--text-muted);"></i>
+            <!-- Secciones Privadas (Ocultas por defecto) -->
+            <div id="privateContent" style="display: none;">
+                <div class="portal-preview">
+                    <div class="dashboard-mock">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); letter-spacing: 1px;">Dashboard Financiero V3.0</h4>
+                            <i data-lucide="layout-dashboard" style="width: 16px; color: var(--text-muted);"></i>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="mockChart"></canvas>
+                        </div>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="mockChart"></canvas>
-                    </div>
-                </div>
-                <div class="stats-grid-mini">
-                    <div class="stat-card-mini">
-                        <p class="stat-label">Balance General</p>
-                        <p class="stat-value">$452,300</p>
-                    </div>
-                    <div class="stat-card-mini">
-                        <p class="stat-label">Impuestos Pagados</p>
-                        <p class="stat-value">$12,450</p>
+                    <div class="stats-grid-mini">
+                        <div class="stat-card-mini">
+                            <p class="stat-label">Balance General</p>
+                            <p class="stat-value">$452,300</p>
+                        </div>
+                        <div class="stat-card-mini">
+                            <p class="stat-label">Impuestos Pagados</p>
+                            <p class="stat-value">$12,450</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
+
+            <!-- Formulario de Acceso (Visible por defecto) -->
+            <div id="authContent">
+                <div class="login-card">
+                    <div class="glass-card" style="padding: 2.5rem;">
+                        <h3 style="margin-bottom: 1.5rem; text-align: center;">Acceso Privado</h3>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label>USUARIO</label>
+                                <input type="email" id="loginEmail" placeholder="user@loyalbusiness.com" required>
+                            </div>
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label>CONTRASEÑA</label>
+                                <input type="password" id="loginPass" placeholder="••••••••" required>
+                            </div>
+                            <p id="loginError" style="color: #ff4b2b; font-size: 0.75rem; margin-top: 0.5rem; display: none;"></p>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Acceder al Portal</button>
+                        </form>
+                        <p style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+                            ¿No tienes cuenta? <a href="#" id="showRegister" style="color: var(--accent-blue); font-weight: 600;">Regístrate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna de Información (Visible siempre) -->
+            <div class="portal-info">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Portal de Clientes Digital</h2>
                 <p style="margin-bottom: 2rem;">Nuestros clientes tienen acceso a un portal digital exclusivo donde pueden consultar su información contable y financiera en tiempo real.</p>
                 <ul style="margin-bottom: 2.5rem; display: grid; gap: 0.8rem;">
@@ -173,18 +204,6 @@
                     <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="calendar" style="width: 20px; color: var(--accent-blue);"></i> Impuestos por pagar y declaraciones</li>
                     <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="file-json" style="width: 20px; color: var(--accent-blue);"></i> Documentos fiscales y reportes contables</li>
                 </ul>
-                <div style="background: var(--primary-dark); padding: 2rem; border-radius: 20px; border: 1px solid var(--accent-blue);">
-                    <h4 style="margin-bottom: 1.5rem;">Acceso Privado</h4>
-                    <div class="form-group">
-                        <label>Usuario</label>
-                        <input type="text" placeholder="user@loyalbusiness.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" placeholder="••••••••">
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%; justify-content: center;">Acceder al Portal</button>
-                </div>
             </div>
         </div>
     </section>
@@ -298,6 +317,28 @@
         // Init Lucide Icons
         lucide.createIcons();
     </script>
+    <!-- Modal de Registro -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h3 style="margin-bottom: 1.5rem; text-align: center;">Crear Cuenta LBS</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-bottom: 2rem;">
+                Únete a la plataforma tecnológica líder en contabilidad empresarial.
+            </p>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>CORREO ELECTRÓNICO</label>
+                    <input type="email" id="registerEmail" placeholder="tu@empresa.com" required>
+                </div>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" id="registerPass" placeholder="Mínimo 6 caracteres" required>
+                </div>
+                <p id="registerError" style="color: #ff4b2b; font-size: 0.75rem; margin-top: 0.5rem; display: none;"></p>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Registrar Cuenta</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
