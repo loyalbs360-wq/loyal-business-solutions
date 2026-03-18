@@ -1,5 +1,5 @@
 // Importar funciones de auth
-import { handleLogin, handleRegister, handleLogout, onUserStatusChange } from './auth.js';
+import { handleLogin, handleRegister, handleLogout, onUserStatusChange, getUserData } from './auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Referencias UI ---
@@ -25,16 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnMTY = document.getElementById('btnMTY');
 
     // --- Monitoreo de Usuario ---
-    onUserStatusChange((user) => {
+    onUserStatusChange(async (user) => {
         if (user) {
             // Usuario logueado
             authContent.style.display = 'none';
             privateContent.style.display = 'block';
             navLogoutBtn.style.display = 'flex';
             
-            // Simulación de Niveles de Acceso (Aquí irá la lógica real de Firestore pronto)
-            // Por ahora mostramos los 3, pero listos para filtrar
-            checkRegionalAccess(user);
+            // Obtener datos de acceso desde Firestore
+            const userData = await getUserData(user.uid);
+            checkRegionalAccess(userData);
             
             initDashboard(); // Inicializar gráfica solo si hay usuario
         } else {
@@ -86,15 +86,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Lógica de Acceso Regional ---
-    async function checkRegionalAccess(user) {
-        // En el futuro, leeremos un campo 'region' de Firestore
-        // Ejemplo: const userDoc = await getDoc(...);
-        // Por ahora, habilitamos todos para que el usuario pueda verlos
-        btnCDMX.style.display = 'flex';
-        btnGDLJ.style.display = 'flex';
-        btnMTY.style.display = 'flex';
+    function checkRegionalAccess(userData) {
+        // Ocultar todos por defecto
+        btnCDMX.style.display = 'none';
+        btnGDLJ.style.display = 'none';
+        btnMTY.style.display = 'none';
 
-        // Listeners para clics regionales
+        if (userData && userData.accessRegions && userData.accessRegions.length > 0) {
+            // Mostrar solo los permitidos
+            if (userData.accessRegions.includes('CDMX')) btnCDMX.style.display = 'flex';
+            if (userData.accessRegions.includes('GDLJ')) btnGDLJ.style.display = 'flex';
+            if (userData.accessRegions.includes('MTY')) btnMTY.style.display = 'flex';
+        } else {
+            // Si no tiene datos en Firestore aún, podrías mostrar un mensaje o dejarlo vacío
+            console.log("El usuario no tiene regiones asignadas aún.");
+        }
+
+        // Listeners para clics regionales (se mantienen igual para redirección)
         btnCDMX.onclick = () => window.location.href = "https://script.google.com/macros/s/AKfycbwU8VRaxGQFhLPTm3MYZfQdqmVWPtetT3Kgrty34hsyqPgT3jfkCJfbZyK9Vbp8p2u6RQ/exec";
         btnGDLJ.onclick = () => window.location.href = "https://script.google.com/macros/s/AKfycbxxnWEE-Fsf4I3qQC9uA338FUJNvijBMFOPj4RcI2-KKo4nTHQzPqyOXQc_1aO9Jx4O6g/exec";
         btnMTY.onclick = () => window.location.href = "https://script.google.com/macros/s/AKfycbxmVBHV9-BP0ENlOn33709X4svvUzfwWpb59RSj6SLw85OGccqOneOA3TgZelduqYJOOw/exec";

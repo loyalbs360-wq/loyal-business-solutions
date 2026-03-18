@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // Configuración proporcionada por el usuario
 const firebaseConfig = {
@@ -15,6 +16,7 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 // Referencias a elementos del DOM (se manejarán en la integración con index.html)
 export const handleLogin = async (email, password) => {
@@ -29,7 +31,15 @@ export const handleLogin = async (email, password) => {
 export const handleRegister = async (email, password) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        return { success: true, user: userCredential.user };
+        const user = userCredential.user;
+
+        // Crear documento inicial en Firestore para el nuevo usuario
+        await setDoc(doc(db, "usuarios", user.uid), {
+            email: user.email,
+            accessRegions: [] // Por defecto sin accesos hasta que el admin asigne
+        });
+
+        return { success: true, user: user };
     } catch (error) {
         return { success: false, error: error.message };
     }
@@ -41,6 +51,21 @@ export const handleLogout = async () => {
         return { success: true };
     } catch (error) {
         return { success: false, error: error.message };
+    }
+};
+
+export const getUserData = async (uid) => {
+    try {
+        const docRef = doc(db, "usuarios", uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            return docSnap.data();
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error("Error al obtener datos del usuario:", error);
+        return null;
     }
 };
 
