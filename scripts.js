@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             privateContent.style.display = 'block';
             navLogoutBtn.style.display = 'flex';
             
+            console.log("Verificando permisos para el UID:", user.uid);
+            
             // Obtener datos de acceso desde Firestore
             const userData = await getUserData(user.uid);
             checkRegionalAccess(userData);
