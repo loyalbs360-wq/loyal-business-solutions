@@ -56,15 +56,12 @@ export const handleLogout = async () => {
 
 export const getUserData = async (uid) => {
     try {
-        console.log("Buscando en Firestore: usuarios/" + uid);
         const docRef = doc(db, "usuarios", uid);
         const docSnap = await getDoc(docRef);
         
         if (docSnap.exists()) {
-            console.log("¡Documento encontrado!", docSnap.data());
             return docSnap.data();
         } else {
-            console.warn("Documento NO encontrado en Firestore para el path: usuarios/" + uid);
             return null;
         }
     } catch (error) {
