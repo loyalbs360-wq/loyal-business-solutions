@@ -208,8 +208,5 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'all 0.8s ease-out';
     });
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Lanza una vez al cargar
-    
     lucide.createIcons();
 });
